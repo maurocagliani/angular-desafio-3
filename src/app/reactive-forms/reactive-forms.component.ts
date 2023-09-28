@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-forms',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./reactive-forms.component.scss']
 })
 export class ReactiveFormsComponent {
+    userForm: FormGroup;
 
-}
+  constructor(private formBuilder: FormBuilder){
+    this.userForm = this.formBuilder.group({
+      email: this.formBuilder.control(''),
+      password: this.formBuilder.control(''),
+    })
+  
+    
+  }
+  }
+
