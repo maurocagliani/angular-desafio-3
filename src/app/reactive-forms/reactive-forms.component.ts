@@ -15,7 +15,10 @@ export class ReactiveFormsComponent {
       password: this.formBuilder.control(''),
     })
   
-    
   }
+ 
+  onSubmit(): void{
+      console.log(this.userForm.value);
+    }
   }
 
