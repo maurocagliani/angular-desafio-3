@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-forms',
@@ -11,14 +11,24 @@ export class ReactiveFormsComponent {
 
   constructor(private formBuilder: FormBuilder){
     this.userForm = this.formBuilder.group({
-      email: this.formBuilder.control(''),
+      email: this.formBuilder.control('',[
+        Validators.required, 
+        Validators.email,
+      ]),
       password: this.formBuilder.control(''),
     })
   
   }
  
   onSubmit(): void{
+
+    console.log(this.userForm);
+this.userForm.controls['email'].valid;
+
+    if (this.userForm.invalid) {
+      alert('Formulario Invalido)');
+  } else{
       console.log(this.userForm.value);
     }
   }
-
+}
