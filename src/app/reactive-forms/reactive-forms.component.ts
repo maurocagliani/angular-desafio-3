@@ -17,13 +17,20 @@ export class ReactiveFormsComponent {
       ]),
       password: this.formBuilder.control(''),
     })
-  
   }
+  get emailControl(){
+    return this.userForm.controls['email'];
+  }
+
+  get emailControlIsInvalid(){
+    return this.emailControl.invalid && this.emailControl.touched;
+  }
+  
  
   onSubmit(): void{
 
     console.log(this.userForm);
-this.userForm.controls['email'].valid;
+    this.userForm.controls['email'].valid;
 
     if (this.userForm.invalid) {
       alert('Formulario Invalido)');

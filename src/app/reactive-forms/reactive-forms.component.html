@@ -7,8 +7,16 @@
         formControlName="email"
         type="text"
         class="form-control"
-        [ngClass]="{'is-invalid': userForm.controls['email'].invalid && userForm.controls['email'].touched}"
+        [ngClass]="{'is-invalid': emailControlIsInvalid}"
         value="email@example.com">
+        <div class="invalid-feedback">
+            <ng-container *ngIf="emailControl.errors?.['required']">
+                Este campo es requerido.
+            </ng-container>
+            <ng-container *ngIf="emailControl.errors?.['email']">
+                Por favor ingrese un email válido.
+            </ng-container>
+        </div>
     </div>
   </div>
   <div class="mb-3 row">
