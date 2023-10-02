@@ -15,7 +15,9 @@ export class ReactiveFormsComponent {
         Validators.required, 
         Validators.email,
       ]),
-      password: this.formBuilder.control(''),
+      password: this.formBuilder.control('',[
+        Validators.minLength(6),
+      ]),
     })
   }
   get emailControl(){
@@ -24,6 +26,17 @@ export class ReactiveFormsComponent {
 
   get emailControlIsInvalid(){
     return this.emailControl.invalid && this.emailControl.touched;
+  }
+  
+  // Password
+
+  
+  get passwordControl(){
+    return this.userForm.controls['password'];
+  }
+
+  get passwordControlIsInvalid(){
+    return this.passwordControl.errors;
   }
   
  
